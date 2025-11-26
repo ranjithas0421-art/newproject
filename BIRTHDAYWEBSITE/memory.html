@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Memories — Happy Birthday Pranjali Santhosh!</title>
+  <style>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      overflow:hidden;
+      background:radial-gradient(circle at 30% 10%,#00ffa6,#c8ff00);
+      background-size:200% 200%;
+      animation:gradientShift 15s ease infinite;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      color:#fff;
+      font-family:Rubik,system-ui;
+      position:relative;
+    }
+    @keyframes gradientShift{
+      0%,100%{background-position:0% 50%;}
+      50%{background-position:100% 50%;}
+    }
+    
+    /* Animated background particles */
+    .particle{
+      position:absolute;
+      width:4px;
+      height:4px;
+      background:rgba(255,255,255,0.6);
+      border-radius:50%;
+      pointer-events:none;
+      animation:particleFloat 8s ease-in-out infinite;
+      box-shadow:0 0 6px rgba(255,255,255,0.8);
+    }
+    @keyframes particleFloat{
+      0%,100%{transform:translateY(0) translateX(0) scale(0.8);opacity:0.3;}
+      50%{transform:translateY(-100px) translateX(50px) scale(1.2);opacity:0.8;}
+    }
+    
+    /* Sparkles/Stars */
+    .sparkle{
+      position:absolute;
+      width:6px;
+      height:6px;
+      background:#fff;
+      border-radius:50%;
+      pointer-events:none;
+      animation:sparkleTwinkle 3s ease-in-out infinite;
+      box-shadow:0 0 10px rgba(255,255,255,0.9),0 0 20px rgba(255,255,255,0.5);
+    }
+    @keyframes sparkleTwinkle{
+      0%,100%{opacity:0;transform:scale(0.5) rotate(0deg);}
+      25%{opacity:1;transform:scale(1.5) rotate(90deg);}
+      50%{opacity:0.7;transform:scale(1) rotate(180deg);}
+      75%{opacity:1;transform:scale(1.3) rotate(270deg);}
+    }
+    
+    /* Floating Hearts */
+    .heart{
+      position:absolute;
+      width:20px;
+      height:20px;
+      pointer-events:none;
+      animation:heartFloat 6s ease-in-out infinite;
+      opacity:0.7;
+    }
+    .heart::before,.heart::after{
+      content:'';
+      position:absolute;
+      width:10px;
+      height:16px;
+      background:#ff6b9d;
+      border-radius:10px 10px 0 0;
+      transform:rotate(-45deg);
+      transform-origin:0 100%;
+      box-shadow:0 0 8px rgba(255,107,157,0.6);
+    }
+    .heart::after{
+      left:8px;
+      transform:rotate(45deg);
+      transform-origin:100% 100%;
+    }
+    @keyframes heartFloat{
+      0%,100%{transform:translateY(0) translateX(0) scale(1);opacity:0.5;}
+      25%{transform:translateY(-80px) translateX(30px) scale(1.2);opacity:0.8;}
+      50%{transform:translateY(-120px) translateX(-20px) scale(0.9);opacity:0.6;}
+      75%{transform:translateY(-60px) translateX(40px) scale(1.1);opacity:0.7;}
+    }
+    
+    /* Floating Balloons */
+    .mini-balloon{
+      position:absolute;
+      width:30px;
+      height:40px;
+      border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+      pointer-events:none;
+      animation:balloonFloat 10s ease-in-out infinite;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2),inset -5px -5px 0 rgba(0,0,0,0.1);
+    }
+    .mini-balloon::before{
+      content:'';
+      position:absolute;
+      left:20%;
+      top:15%;
+      width:30%;
+      height:40%;
+      border-radius:50%;
+      background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.1));
+      transform:rotate(-20deg);
+    }
+    .mini-balloon::after{
+      content:'';
+      position:absolute;
+      bottom:-15px;
+      left:50%;
+      transform:translateX(-50%);
+      width:1px;
+      height:15px;
+      background:rgba(0,0,0,0.3);
+    }
+    @keyframes balloonFloat{
+      0%,100%{transform:translateY(0) translateX(0) scale(1);}
+      25%{transform:translateY(-150px) translateX(60px) scale(1.1);}
+      50%{transform:translateY(-200px) translateX(-40px) scale(0.9);}
+      75%{transform:translateY(-100px) translateX(80px) scale(1.05);}
+    }
+    
+    .slide{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      transition:opacity 1s ease,transform 8s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:2;
+    }
+    .slide.active{opacity:1;transform:scale(1)}
+    
+    /* Enhanced image styling with decorative frame */
+    img{
+      max-width:80%;
+      max-height:80%;
+      border-radius:14px;
+      box-shadow:0 20px 60px rgba(255,255,255,0.975),
+                 0 0 0 8px rgba(255,255,255,0.3),
+                 0 0 0 12px rgba(255,215,0,0.2),
+                 0 0 40px rgba(255,215,0,0.4);
+      object-fit:cover;
+      position:relative;
+      z-index:3;
+      animation:imageGlow 3s ease-in-out infinite;
+      border:4px solid rgba(255,255,255,0.5);
+    }
+    @keyframes imageGlow{
+      0%,100%{box-shadow:0 20px 60px rgba(255,255,255,0.975),
+                      0 0 0 8px rgba(255,255,255,0.3),
+                      0 0 0 12px rgba(255,215,0,0.2),
+                      0 0 40px rgba(255,215,0,0.4);}
+      50%{box-shadow:0 20px 60px rgba(255,255,255,0.975),
+                   0 0 0 8px rgba(255,255,255,0.4),
+                   0 0 0 12px rgba(255,215,0,0.3),
+                   0 0 60px rgba(255,215,0,0.6);}
+    }
+    
+    #quote{
+      position:absolute;
+      bottom:40px;
+      width:100%;
+      text-align:center;
+      font-size:20px;
+      font-weight:700;
+      text-shadow:0 4px 12px rgba(0,0,0,0.5),
+                  0 0 20px rgba(255,255,255,0.3);
+      z-index:10;
+      background:linear-gradient(90deg,transparent,rgba(0,0,0,0.2),transparent);
+      padding:10px 0;
+    }
+    
+    #nextBtn{
+      position:absolute;
+      bottom:20px;
+      right:20px;
+      background:linear-gradient(90deg,#dadada 0%,#fffffe 50%,#ffffff 100%);
+      border:none;
+      padding:14px 20px;
+      border-radius:14px;
+      color:#0b0b10;
+      font-weight:800;
+      font-size:1rem;
+      cursor:pointer;
+      display:none;
+      box-shadow:0 10px 30px rgba(167,139,250,0.15);
+      transition:transform .14s ease,box-shadow .14s ease;
+      z-index:10;
+    }
+    #nextBtn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 38px rgba(167,139,250,0.22);
+    }
+    
+    /* Container for floating elements */
+    #effectsContainer{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      overflow:hidden;
+    }
+    
+    
+    /* Falling Flowers */
+    .flower{
+      position:absolute;
+      pointer-events:none;
+      z-index:1;
+    }
+    .flower-petal{
+      position:absolute;
+      border-radius:50% 0 50% 0;
+      opacity:0.85;
+    }
+    .flower-center{
+      position:absolute;
+      width:8px;
+      height:8px;
+      background:#ffd700;
+      border-radius:50%;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      box-shadow:0 0 6px rgba(255,215,0,0.8);
+    }
+    @keyframes flowerFall{
+      0%{
+        transform:translateY(-50px) translateX(0) rotate(0deg);
+        opacity:0.9;
+      }
+      100%{
+        transform:translateY(calc(100vh + 50px)) translateX(var(--drift, 30px)) rotate(360deg);
+        opacity:0.3;
+      }
+    }
+    .flower.falling{
+      animation:flowerFall linear forwards;
+    }
+  </style>
+</head>
+<body>
+  <div id="effectsContainer"></div>
+  <div id="slides"></div>
+  <div id="quote">Reliving the best moments...</div>
+  <button id="nextBtn">Next</button>
+  <script>
+    const photos=[
+      'photos/WhatsApp Image 2025-11-25 at 20.05.16_f6872162.jpg',
+      'photos/WhatsApp Image 2025-11-25 at 20.05.00_01cb1b53.jpg',
+      'photos/WhatsApp Image 2025-11-25 at 20.05.04_2f9db2dc.jpg',
+      'photos/WhatsApp Image 2025-11-25 at 20.05.07_fc6c9dd6.jpg',
+      'photos/WhatsApp Image 2025-11-25 at 20.05.13_689eba78.jpg',
+      'photos/WhatsApp Image 2025-11-25 at 20.05.16_f6872162.jpg'];
+    const quotes=[
+      'Every memory with you is a celebration itself.',
+      'Time flies, but beautiful moments stay forever.',
+      'Happy Birthday, Pranjali Santhosh — keep shining!',
+      'be smilling always my dear',
+      'be the best child for your mom and dad',
+      'be the best grandchild for your grand mother',
+      'be my jerry always to fight with'
+    ];
+    const slides=document.getElementById('slides');
+    const nextBtn=document.getElementById('nextBtn');
+    const effectsContainer=document.getElementById('effectsContainer');
+    
+    // Create sparkles
+    function createSparkle(){
+      const sparkle=document.createElement('div');
+      sparkle.className='sparkle';
+      sparkle.style.left=Math.random()*100+'%';
+      sparkle.style.top=Math.random()*100+'%';
+      sparkle.style.animationDelay=Math.random()*3+'s';
+      sparkle.style.animationDuration=(2+Math.random()*2)+'s';
+      effectsContainer.appendChild(sparkle);
+      setTimeout(()=>sparkle.remove(),5000+Math.random()*3000);
+    }
+    
+    // Create floating hearts
+    function createHeart(){
+      const heart=document.createElement('div');
+      heart.className='heart';
+      heart.style.left=Math.random()*100+'%';
+      heart.style.top=(80+Math.random()*20)+'%';
+      heart.style.animationDelay=Math.random()*2+'s';
+      heart.style.animationDuration=(4+Math.random()*4)+'s';
+      effectsContainer.appendChild(heart);
+      setTimeout(()=>heart.remove(),8000+Math.random()*4000);
+    }
+    
+    // Create mini balloons
+    function createMiniBalloon(){
+      const balloon=document.createElement('div');
+      balloon.className='mini-balloon';
+      const colors=['#ff6b6b','#ffb86b','#6bc8ff','#b38bff','#ff7ecb','#8bd36b'];
+      balloon.style.background=`linear-gradient(180deg,${colors[Math.floor(Math.random()*colors.length)]},${colors[Math.floor(Math.random()*colors.length)]})`;
+      balloon.style.left=Math.random()*100+'%';
+      balloon.style.top=(85+Math.random()*15)+'%';
+      balloon.style.animationDelay=Math.random()*3+'s';
+      balloon.style.animationDuration=(8+Math.random()*6)+'s';
+      effectsContainer.appendChild(balloon);
+      setTimeout(()=>balloon.remove(),14000+Math.random()*6000);
+    }
+    
+    // Create background particles
+    function createParticle(){
+      const particle=document.createElement('div');
+      particle.className='particle';
+      particle.style.left=Math.random()*100+'%';
+      particle.style.top=Math.random()*100+'%';
+      particle.style.animationDelay=Math.random()*2+'s';
+      particle.style.animationDuration=(6+Math.random()*4)+'s';
+      effectsContainer.appendChild(particle);
+      setTimeout(()=>particle.remove(),10000+Math.random()*5000);
+    }
+    
+    // Create falling flowers
+    function createFallingFlower(){
+      const flower=document.createElement('div');
+      flower.className='flower falling';
+      const size=20+Math.random()*25;
+      flower.style.width=size+'px';
+      flower.style.height=size+'px';
+      flower.style.left=Math.random()*100+'%';
+      flower.style.top='-50px';
+      
+      const flowerColors=[
+        {petal:'#ff6b9d',center:'#ffd700'},
+        {petal:'#ffb86b',center:'#ffd700'},
+        {petal:'#ff7ecb',center:'#ffd700'},
+        {petal:'#8bd36b',center:'#ffd700'},
+        {petal:'#6bc8ff',center:'#ffd700'},
+        {petal:'#b38bff',center:'#ffd700'},
+        {petal:'#ffd36b',center:'#ff8c00'}
+      ];
+      const color=flowerColors[Math.floor(Math.random()*flowerColors.length)];
+      
+      // Create 5 petals in a circle
+      for(let i=0;i<5;i++){
+        const petal=document.createElement('div');
+        petal.className='flower-petal';
+        const angle=(i*72)*Math.PI/180;
+        const radius=size*0.35;
+        const x=Math.cos(angle)*radius;
+        const y=Math.sin(angle)*radius;
+        petal.style.width=size*0.4+'px';
+        petal.style.height=size*0.4+'px';
+        petal.style.background=color.petal;
+        petal.style.left=(size/2+x-size*0.2)+'px';
+        petal.style.top=(size/2+y-size*0.2)+'px';
+        petal.style.transform=`rotate(${angle*180/Math.PI}deg)`;
+        flower.appendChild(petal);
+      }
+      
+      // Add center
+      const center=document.createElement('div');
+      center.className='flower-center';
+      center.style.background=color.center;
+      flower.appendChild(center);
+      
+      // Random fall duration and slight horizontal drift
+      const duration=8+Math.random()*7;
+      flower.style.animationDuration=duration+'s';
+      const drift=Math.random()*60-30;
+      flower.style.setProperty('--drift',drift+'px');
+      
+      effectsContainer.appendChild(flower);
+      setTimeout(()=>flower.remove(),duration*1000+500);
+    }
+    
+    // Initialize visual effects
+    function initVisualEffects(){
+      // Create initial sparkles
+      for(let i=0;i<25;i++){
+        setTimeout(()=>createSparkle(),i*200);
+      }
+      
+      // Create initial hearts
+      for(let i=0;i<8;i++){
+        setTimeout(()=>createHeart(),i*800);
+      }
+      
+      // Create initial balloons
+      for(let i=0;i<6;i++){
+        setTimeout(()=>createMiniBalloon(),i*1200);
+      }
+      
+      // Create initial particles
+      for(let i=0;i<30;i++){
+        setTimeout(()=>createParticle(),i*300);
+      }
+      
+      // Create initial falling flowers
+      for(let i=0;i<5;i++){
+        setTimeout(()=>createFallingFlower(),i*1500);
+      }
+      
+      // Continuously spawn new effects
+      setInterval(()=>{
+        if(Math.random()>0.7) createSparkle();
+        if(Math.random()>0.85) createHeart();
+        if(Math.random()>0.9) createMiniBalloon();
+        if(Math.random()>0.6) createParticle();
+        if(Math.random()>0.75) createFallingFlower();
+      },2000);
+      
+      // More frequent flower falls for better visual effect
+      setInterval(()=>{
+        createFallingFlower();
+      },3000+Math.random()*2000);
+    }
+    
+    photos.forEach((src,i)=>{
+      const d=document.createElement('div');
+      d.className='slide';
+      const img=document.createElement('img');
+      img.src=src;
+      d.appendChild(img);
+      slides.appendChild(d);
+    });
+    const allSlides=document.querySelectorAll('.slide');
+    let i=0;
+    allSlides[0].classList.add('active');
+    nextBtn.style.display='none';
+
+    function showNextButton(){nextBtn.style.display='block';}
+
+    setInterval(()=>{
+      allSlides[i].classList.remove('active');
+      i++;
+      if(i>=allSlides.length){window.location.href='final.html';return;}
+      allSlides[i].classList.add('active');
+      document.getElementById('quote').textContent=quotes[i%quotes.length];
+      showNextButton();
+    },4000);
+
+    nextBtn.addEventListener('click',()=>{
+      nextBtn.style.display='none';
+      allSlides[i].classList.remove('active');
+      i++;
+      if(i>=allSlides.length){window.location.href='final.html';return;}
+      allSlides[i].classList.add('active');
+      document.getElementById('quote').textContent=quotes[i%quotes.length];
+    });
+    
+    // Start visual effects when page loads
+    window.addEventListener('load',()=>{
+      initVisualEffects();
+    });
+  </script>
+</body>
+</html>

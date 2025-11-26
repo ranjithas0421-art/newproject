@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Final Wishes — Happy Birthday Pranjali Santhosh!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Rubik:wght@300;400;600&family=Dancing+Script:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    body{
+      font-family:Rubik,system-ui;
+      background:radial-gradient(circle at 30% 10%,#00f7ff,#ff03c8);
+      color:#ff0000;
+      margin:100;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      height:100vh;
+      text-align:center;
+      position:relative;
+    }
+    .bunting{
+      position:absolute;
+      top:20px;
+      left:0;
+      right:0;
+      height:30px;
+      display:flex;
+      justify-content:center;
+      gap:50px;
+      z-index:1;
+    }
+    .bunting-flag{
+      width:30px;
+      height:30px;
+      clip-path:polygon(0 0,100% 0,50% 100%);
+    }
+    .bunting-flag:nth-child(1){background:#ffd700;}
+    .bunting-flag:nth-child(2){background:#4caf50;}
+    .bunting-flag:nth-child(3){background:#000000;}
+    .bunting-flag:nth-child(4){background:#f44336;}
+    .bunting-flag:nth-child(5){background:#2196f3;}
+    .bunting-flag:nth-child(6){background:#ffd700;}
+    .bunting-flag:nth-child(7){background:#4caf50;}
+    .bunting-flag:nth-child(8){background:#000000;}
+    .bunting-flag:nth-child(9){background:#f44336;}
+    .bunting-flag:nth-child(10){background:#2196f3;}
+    
+    .card-title{
+      position:absolute;
+      top:100px;
+      left:50%;
+      transform:translateX(-50%);
+      font-family:'Dancing Script',cursive;
+      font-size:2.5em;
+      background:linear-gradient(90deg,#ffee00,#ffe602,#aada00);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow:0 0 30px rgba(255, 1, 98, 0.3);
+      z-index:2;
+      opacity:0;
+      animation:fadeInDown 5s ease 0.3s forwards;
+    }
+    @keyframes fadeInDown{
+      from{opacity:0;transform:translateX(-50%) translateY(-20px);}
+      to{opacity:1;transform:translateX(-50%) translateY(0);}
+    }
+    
+    .card-container{
+      perspective:1200px;
+      width:100%;
+      max-width:500px;
+      height:250vh;
+      max-height:600px;
+      position:relative;
+      margin-top:100px;
+    }
+    .card{
+      width:100%;
+      height:100%;
+      position:relative;
+      transform-style:preserve-3d;
+      transition:transform 2s cubic-bezier(0.68,-0.55,0.265,1.55);
+      cursor:pointer;
+    }
+    .card.opened{
+    
+      transform:rotateY(180deg);
+    }
+    .card-face{
+      position:absolute;
+      width:100%;
+      height:100%;
+      backface-visibility:hidden;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(4, 0, 255, 0.5);
+    }
+    .card-front{
+      background:linear-gradient(180deg,#ff2222 0%,#5912ff 100%);
+      border:8px solid #ffffff;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:space-between;
+      padding:30px 20px;
+    }
+    .card-back{
+      background:linear-gradient(180deg,#020ca0 0%,hsl(184, 100%, 50%) 100%);
+      border:8px solid #000000;
+      transform:rotateY(180deg);
+      display:flex;
+      flex-direction:column;
+      padding:30px 25px;
+      overflow-y:auto;
+    }
+    
+    .balloons-container{
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      gap:15px;
+      margin-top:20px;
+      position:relative;
+      height:200px;
+    }
+    .balloon{
+      position:relative;
+      width:80px;
+      height:100px;
+      border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow:0 8px 20px rgba(255, 255, 255, 0.2),inset -10px -10px 0 rgba(0,0,0,0.1);
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      animation:float 3s ease-in-out infinite;
+    }
+    .balloon::before{
+      content:'';
+      position:absolute;
+      left:20%;
+      top:15%;
+      width:30%;
+      height:40%;
+      border-radius:50%;
+      background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.1));
+      transform:rotate(-20deg);
+    }
+    .balloon.purple{
+      background:linear-gradient(180deg,#2196f3 0%,#1976d2 100%);
+      width:90px;
+      height:110px;
+      z-index:2;
+      animation-delay:0s;
+    }
+    .balloon.pink{
+      background:linear-gradient(180deg,#f44336 0%,#d32f2f 100%);
+      animation-delay:0.3s;
+    }
+    .balloon-string{
+      position:absolute;
+      bottom:-25px;
+      left:50%;
+      transform:translateX(-50%);
+      width:2px;
+      height:25px;
+      background:linear-gradient(180deg,#000000 0%,#333 100%);
+    }
+    @keyframes float{
+      0%,100%{transform:translateY(0);}
+      50%{transform:translateY(-100px);}
+    }
+    
+    .card-front-title{
+      font-family:'Playfair Display',serif;
+      font-size:4em;
+      color:#000000;
+      margin-bottom:100px;
+      text-align:center;
+    }
+    .card-front-subtitle{
+      font-family:'Dancing Script',cursive;
+      font-size:4em;
+      color:#ff0000;
+      margin-bottom:30px;
+    }
+    
+    .open-btn{
+      background:linear-gradient(90deg,#ffd700 0%,#f44336 100%);
+      border:none;
+      padding:14px 32px;
+      border-radius:12px;
+      color:#000000;
+      font-weight:700;
+      font-size:1.1rem;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(244,67,54,0.4);
+      transition:transform 0.2s ease,box-shadow 0.2s ease;
+      margin-top:auto;
+      margin-bottom:20px;
+    }
+    .open-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 12px 28px rgba(127, 54, 244, 0.5);
+    }
+    .open-btn:active{
+      transform:translateY(-1px);
+    }
+    
+    .ribbon{
+      width:100%;
+      height:50px;
+      background:linear-gradient(90deg,#f44336 0%,#ffd700 50%,#f44336 100%);
+      margin:20px 0;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 4px 12px rgba(244,67,54,0.3);
+    }
+    .ribbon::before,.ribbon::after{
+      content:'';
+      position:absolute;
+      width:0;
+      height:0;
+      border-style:solid;
+    }
+    .ribbon::before{
+      left:-15px;
+      border-width:25px 15px 0 0;
+      border-color:#f44336 transparent transparent transparent;
+    }
+    .ribbon::after{
+      right:-15px;
+      border-width:25px 0 0 15px;
+      border-color:#f44336 transparent transparent transparent;
+    }
+    .ribbon-bow{
+      width:60px;
+      height:50px;
+      background:linear-gradient(135deg,#f44336 0%,#ffd700 100%);
+      border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+      position:relative;
+      box-shadow:0 4px 12px rgba(0,0,0,0.2);
+    }
+    .ribbon-bow::before,.ribbon-bow::after{
+      content:'';
+      position:absolute;
+      width:30px;
+      height:30px;
+      background:linear-gradient(135deg,#f44336 0%,#ffd700 100%);
+      border-radius:50%;
+      top:10px;
+    }
+    .ribbon-bow::before{left:-15px;}
+    .ribbon-bow::after{right:-15px;}
+    
+    .card-message{
+      background:linear-gradient(180deg,#000000 0%,#000000 100%);
+      padding:50px;
+      border-radius:50px;
+      margin:20px 0;
+      text-align:left;
+    }
+    .card-message h1{
+      font-family:'Playfair Display',serif;
+      font-size:2em;
+      background:linear-gradient(90deg,#ffd700,#2196f3);
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-align:center;
+      margin-bottom:20px;
+    }
+    .card-message p{
+      font-family:'Dancing Script',cursive;
+      font-size:1.4em;
+      color:#e90000;
+      line-height:1.8;
+      margin:15px 0;
+      opacity:0.9;
+    }
+    
+    .stars{
+      position:absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      pointer-events:none;
+      overflow:hidden;
+    }
+    .star{
+      position:absolute;
+      width:5px;
+      height:5px;
+      background:#ffffff;
+      border-radius:50%;
+      box-shadow:0 0 6px rgba(255, 255, 255, 0.8);
+      animation:twinkle 2s ease-in-out infinite;
+    }
+    @keyframes twinkle{
+      0%,100%{opacity:0.3;transform:scale(0.8);}
+      50%{opacity:1;transform:scale(1.2);}
+    }
+    
+    .btn{
+      padding:14px 20px;
+      margin-top:20px;
+      border:none;
+      border-radius:18px;
+      background:linear-gradient(90deg,#ffd700 0%,#4caf50 50%,#2196f3 100%);
+      color:#000;
+      font-weight:800;
+      font-size:1.1rem;
+      box-shadow:0 12px 32px rgba(33,150,243,0.18);
+      cursor:pointer;
+      transition:transform .16s ease,box-shadow .16s ease;
+    }
+    .btn:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 44px rgba(33,150,243,0.26);
+    }
+    .btn:active{
+      transform:translateY(-1px) scale(0.99);
+    }
+    
+    @media(max-width:600px){
+      .card-title{font-size:1.8em;top:50px;}
+      .card-container{height:75vh;margin-top:80px;}
+      .card-front-title{font-size:1.6em;}
+      .card-front-subtitle{font-size:1.4em;}
+      .card-message p{font-size:1.2em;}
+      .balloon{width:50px;height:75px;}
+      .balloon.blue{width:70px;height:85px;}
+    }
+    .balloon.red{
+      background:linear-gradient(180deg,#06fff3 0%,#33ff00 100%);
+    }
+    .balloon.blue{
+      background:linear-gradient(180deg,#f3f711 0%,#ffffff 100%);
+    }
+    .balloon.yellow{
+      background:linear-gradient(180deg,#eeff00 0%,#ff008c 100%);
+    }
+    .balloon.green{
+      background:linear-gradient(180deg,#4caf50 0%,#388e3c 100%);
+    }
+  </style>
+</head>
+<body>
+  <div class="bunting">
+    <div class="bunting-flag"></div>
+    <div class="bunting-flag"></div>
+    <div class="bunting-flag"></div>
+    <div class="bunting-flag"></div>
+    <div class="bunting-flag"></div>
+    <div class="bunting-flag"></div>
+    <div class="bunting-flag"></div>
+    <div class="bunting-flag"></div>
+    <div class="bunting-flag"></div>
+    <div class="bunting-flag"></div>
+  </div>
+  <div class="card-title">A Special Message</div>
+  
+  <div class="card-container">
+    <div class="card" id="card">
+      <div class="card-face card-front">
+        <div class="balloons-container">
+          <div class="balloon green">
+            <div class="balloon-string"></div>
+          </div>
+          <div class="balloon red">
+            <div class="balloon-string"></div>
+          </div>
+          <div class="balloon yellow">
+            <div class="balloon-string"></div>
+          </div>
+        </div>
+        <div>
+          <div class="card-front-title">Happy Birthday</div>
+          <div class="card-front-subtitle">Pranjali Santhosh</div>
+        </div>
+        <button class="open-btn" id="openBtn">Tap to Open</button>
+      </div>
+      
+      <div class="card-face card-back">
+        <div class="stars" id="stars"></div>
+        <div class="ribbon">
+          <div class="ribbon-bow"></div>
+        </div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.8em;color:#000;text-align:center;margin-bottom:15px;font-weight:700;">
+          Happy BIRTHDAY<br><span style="font-size:0.7em;font-weight:400;">To you</span>
+        </div>
+        <div class="card-message">
+          <h1>🎂 Wish You Happy Birthday, Pranjali Santhosh! 🎂</h1>
+          <p>Happiest birthday sose ma .</p>
+          <p>Our tom and jerry bond shine brighter than any distance or time.</p>
+          <p>May your day be as amazing as your heart — filled with joy, laughter, and unforgettable memories.</p>
+        </div>
+        <button class="btn" onclick="window.location.href='index.html'">Replay Surprise</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const card=document.getElementById('card');
+    const openBtn=document.getElementById('openBtn');
+    const stars=document.getElementById('stars');
+    
+    // Create stars for card back
+    function createStars(){
+      for(let i=0;i<30;i++){
+        const star=document.createElement('div');
+        star.className='star';
+        star.style.left=Math.random()*100+'%';
+        star.style.top=Math.random()*100+'%';
+        star.style.animationDelay=Math.random()*2+'s';
+        stars.appendChild(star);
+      }
+    }
+    createStars();
+    
+    // Open card on click
+    openBtn.addEventListener('click',(e)=>{
+      e.stopPropagation();
+      card.classList.add('opened');
+      openBtn.style.display='none';
+    });
+    
+    // Also allow clicking anywhere on front to open
+    document.querySelector('.card-front').addEventListener('click',(e)=>{
+      if(e.target!==openBtn){
+        card.classList.add('opened');
+        openBtn.style.display='none';
+      }
+    });
+  </script>
+</body>
+</html>
